@@ -34,6 +34,8 @@ export default function ProfilePage() {
     const fetchUser = async () => {
       const supabase = createClient();
       const { data, error } = await supabase.auth.getUser();
+
+      console.log("logged in user",data)
       if (error || !data.user) {
         router.replace("/login");
         return;
